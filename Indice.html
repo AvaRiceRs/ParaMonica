@@ -1,0 +1,594 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti 🌻</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #fff4a3,
+                #ffd95a,
+                #ffef9f
+            );
+
+            font-family: Georgia, serif;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           PANTALLA PRINCIPAL
+        ========================= */
+
+        .inicio {
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.8);
+
+            padding: 50px;
+
+            border-radius: 25px;
+
+            width: 90%;
+            max-width: 600px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.15);
+
+            animation: aparecer 1.5s ease;
+        }
+
+
+        .flor {
+            font-size: 75px;
+
+            animation:
+                flotar 3s ease-in-out infinite;
+        }
+
+
+        h1 {
+            margin-top: 15px;
+
+            color: #8a5a00;
+
+            font-size: 45px;
+        }
+
+
+        .fecha {
+            margin-top: 10px;
+
+            color: #b57900;
+
+            font-size: 25px;
+        }
+
+
+        .mensaje-inicial {
+            margin-top: 25px;
+
+            color: #5c4a20;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+
+        button {
+            margin-top: 30px;
+
+            padding: 14px 32px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #f5b800;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-family: inherit;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        button:hover {
+            transform: scale(1.08);
+
+            background: #d99f00;
+        }
+
+
+        /* =========================
+           CARTA
+        ========================= */
+
+        .carta {
+            display: none;
+
+            width: 90%;
+
+            max-width: 700px;
+
+            max-height: 85vh;
+
+            overflow-y: auto;
+
+            background: #fffdf5;
+
+            padding: 55px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.2);
+
+            position: relative;
+
+            animation: cartaAparecer 1.2s ease;
+        }
+
+
+        .carta::before {
+            content: "🌻";
+
+            position: absolute;
+
+            top: 20px;
+
+            left: 25px;
+
+            font-size: 30px;
+        }
+
+
+        .carta::after {
+            content: "🌻";
+
+            position: absolute;
+
+            top: 20px;
+
+            right: 25px;
+
+            font-size: 30px;
+        }
+
+
+        .carta h1 {
+            text-align: center;
+
+            font-size: 36px;
+
+            color: #8a5a00;
+
+            margin-bottom: 30px;
+        }
+
+
+        .carta p {
+            color: #4d4020;
+
+            font-size: 19px;
+
+            line-height: 1.9;
+
+            margin-bottom: 20px;
+
+            text-align: justify;
+        }
+
+
+        .firma {
+            text-align: right;
+
+            margin-top: 35px;
+
+            color: #8a5a00;
+
+            font-size: 21px;
+
+            font-style: italic;
+        }
+
+
+        .corazon {
+            text-align: center;
+
+            font-size: 35px;
+
+            margin-top: 25px;
+
+            animation: latido 1.5s infinite;
+        }
+
+
+        /* =========================
+           BOTÓN DE SORPRESA
+        ========================= */
+
+        .boton-sorpresa {
+            display: block;
+
+            width: fit-content;
+
+            margin: 35px auto 0;
+
+            padding: 14px 28px;
+
+            background: #f5b800;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .boton-sorpresa:hover {
+            transform: scale(1.08);
+
+            background: #d99f00;
+        }
+
+
+        /* =========================
+           ANIMACIONES
+        ========================= */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes cartaAparecer {
+
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+
+        }
+
+
+        @keyframes flotar {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+
+        @keyframes latido {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+        }
+
+
+        /* =========================
+           FLORES FLOTANDO
+        ========================= */
+
+        .flores {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        .flores span {
+            position: absolute;
+
+            font-size: 25px;
+
+            animation:
+                caer 8s linear infinite;
+
+            opacity: 0.7;
+        }
+
+
+        .flores span:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+
+        .flores span:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+
+        .flores span:nth-child(3) {
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+
+        .flores span:nth-child(4) {
+            left: 70%;
+            animation-delay: 1s;
+        }
+
+
+        .flores span:nth-child(5) {
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+
+        @keyframes caer {
+
+            from {
+                transform:
+                    translateY(-100px)
+                    rotate(0deg);
+            }
+
+            to {
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .inicio {
+                padding: 35px 25px;
+            }
+
+            .inicio h1 {
+                font-size: 35px;
+            }
+
+            .fecha {
+                font-size: 21px;
+            }
+
+            .carta {
+                padding: 45px 25px;
+                max-height: 90vh;
+            }
+
+            .carta h1 {
+                font-size: 29px;
+            }
+
+            .carta p {
+                font-size: 17px;
+                line-height: 1.7;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         FLORES DEL FONDO
+    ========================= -->
+
+    <div class="flores">
+
+        <span>🌻</span>
+        <span>🌼</span>
+        <span>🌻</span>
+        <span>🌼</span>
+        <span>🌻</span>
+
+    </div>
+
+
+    <!-- =========================
+         PANTALLA DE INICIO
+    ========================= -->
+
+    <div class="inicio" id="inicio">
+
+        <div class="flor">
+            🌻
+        </div>
+
+        <h1>
+            Hola Moni
+        </h1>
+
+        <div class="fecha">
+            es 21 de septiembre 💛
+        </div>
+
+        <p class="mensaje-inicial">
+            Hoy es un dia especial y queria decirte algo...
+        </p>
+
+        <button onclick="abrirCarta()">
+            Abrir mi carta 💌
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         CARTA
+    ========================= -->
+
+    <div class="carta" id="carta">
+
+        <h1>
+            Feliz 21 de septiembre 🌻
+        </h1>
+
+
+        <p>
+            Hola, Moni realmente no tengo muchas palabras para decir,
+            solo queria decirte que eres una personita muy especial para mi,
+            aunque a veces no lo demuestre, siempre pienso en ti y estoy
+            pendiente de tí.
+        </p>
+
+
+        <p>
+            Tal vez ultimamente no hemos hablado mucho, sin embargo no
+            quisiera que pienses que no me importas, porque realmente sí,
+            solo que no siempre puedo dar lo mejor de mí, aunque quisiera
+            hacerlo, no siempre puedo.
+        </p>
+
+
+        <p>
+            Te escribo esta carta para expresar todo lo que estoy sintiendo
+            en este momento, y poder entregarte un pequeño detalle en el que
+            pueda darte un poquito de mi ser, tal vez no sea un ramo de flores
+            físico o un regalo enorme, pero esto es algo que estoy haciendo
+            desde el fondo de mi corazón, feliz 21 de septiembre.
+            🌻🖤
+        </p>
+
+
+        <p>
+            Realmente me gustaria hablar contigo, pero no quiero incomodarte,
+            te he estado sintiendo un poco distante y realmente no se que pasa,
+            tal vez lo estoy pensando demasiado, pero me gustaria que me dijeras
+            si algo te molesta o si hay algo que no te gusta de mí, pero si no
+            quieres hablar de eso, no hay problema.
+        </p>
+
+
+        <p>
+            Gracias por estar, por compartir momentos conmigo
+            y por hacer que algunos días sean mucho más bonitos,
+            espero poder darte tus flores en persona cuando nos veamos.
+        </p>
+
+
+        <div class="firma">
+
+            Con mucho cariño 🖤
+            <br>
+            — Luiso
+
+        </div>
+
+
+        <div class="corazon">
+            🖤
+        </div>
+
+
+        <!-- =========================
+             BOTÓN A LA SEGUNDA PÁGINA
+        ========================= -->
+
+        <a href="sorpresa.html" class="boton-sorpresa">
+            Tengo algo más para ti 🌻
+        </a>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function abrirCarta() {
+
+            const inicio =
+                document.getElementById("inicio");
+
+            const carta =
+                document.getElementById("carta");
+
+
+            inicio.style.display = "none";
+
+            carta.style.display = "block";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```
